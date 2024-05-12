@@ -149,7 +149,7 @@ class LlavaMetaForCausalLM(ABC):
         T, N, D = image_features.shape
 
         ## D1: temporal cat
-        image_features = image_features.view(T * N, D) # [T*N D]
+        image_features = image_features.view(T * N, D)  # [T*N D]
 
         ## D2: spatial pool + temporal cat
         # pool2 = nn.MaxPool1d(kernel_size=2, stride=2)
