@@ -60,7 +60,7 @@ Below, we provide guidance on running the code using LLaVA-1.5 as an example.
 Before running:
 1) Please refer to [cog.yaml](./cog.yaml) for environment configuration regarding LLaVA-1.5.
 2) Please download the LLaVA model in advance and place it in the "ckpt" folder, for example, "llava-v1.5-7b" or "llava-v1.5-13b".
-3) Please refer to [Video-ChatGPT](https://github.com/mbzuai-oryx/Video-ChatGPT) for downloading the evaluation dataset.
+3) Please refer to [Video-ChatGPT](https://github.com/mbzuai-oryx/Video-ChatGPT) for downloading the evaluation dataset and corresponding annotations.
 
 ### Zero-shot Video Question-Answering
 To enhance evaluation efficiency, we provide a script for single-machine *multi-GPU* evaluation. Taking the ActivityNet-QA dataset as an example, the specific steps to run the script are as follows:
@@ -72,10 +72,11 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 bash scripts/infer_video/run_qa_anet_7B.sh
 You will get a predtion file *merge.jsonl*.
 
 **Step2: GPT-assistant evaluation**
+
 Running the following command will provide you with accuracy and score. 
 Before running, please fill in your OpenAI API Key, the prediction file address for Step 1, the number of worker processes for multiprocessing (to accelerate inference), and the version number of GPT-3.5.
 
-**Note: The default version of gpt-3.5-turbo has been updated three times in chronological order: gpt-3.5-turbo-0301, gpt-3.5-turbo-0613, gpt-3.5-turbo-0125, with significant performance differences between versions.**
+*Note: The default version of gpt-3.5-turbo has been updated three times in chronological order: gpt-3.5-turbo-0301, gpt-3.5-turbo-0613, gpt-3.5-turbo-0125, with significant performance differences between versions.*
 ```sh
 bash scripts/gpt_eval/eval_qa_activitynet.sh
 ```
@@ -84,7 +85,33 @@ bash scripts/gpt_eval/eval_qa_activitynet.sh
 
 ### Video-Based Text Generation Performance.
 
+The generative performance benchmark, include five evaluation metrics such as Correctness of Information, Detail Orientation, Contextual Understanding, Temporal Understanding, and Consistency. 
 
+**Step1: Obtain the prediction file.**
+```sh
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 bash scripts/infer_video/run_benchmark_generic_qa.sh
+```
+You will get a predtion file *generic.jsonl*.
+
+```sh
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 bash scripts/infer_video/run_benchmark_temporal_qa.sh
+```
+You will get a predtion file *temporal.jsonl*.
+
+```sh
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 bash scripts/infer_video/run_benchmark_consistency_qa.sh
+```
+You will get a predtion file *consistency.jsonl*.
+
+**Step2: GPT-assistant evaluation**
+
+Running the following script will generate these five metrics.
+
+Before running, please fill in your OpenAI API Key, the prediction file address for Step 1, the number of worker processes for multiprocessing (to accelerate inference), and the version number of GPT-3.5.
+
+```sh
+bash scripts/gpt_eval/eval_qa_benchmark.sh
+```
 
 ## Acknowledgement
 We extend our sincere gratitude to these contributors:
