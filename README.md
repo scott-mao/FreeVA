@@ -83,25 +83,18 @@ bash scripts/gpt_eval/eval_qa_activitynet.sh
 
 *The evaluation process for other datasets (MSRVTT-QA, MSVD-QA) follows the same procedure. Please refer to the steps outlined above.*
 
-### Video-Based Text Generation Performance.
+### Video-Based Text Generation Performance
 
 The generative performance benchmark, include five evaluation metrics such as Correctness of Information, Detail Orientation, Contextual Understanding, Temporal Understanding, and Consistency. 
 
 **Step1: Obtain the prediction file.**
 ```sh
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 bash scripts/infer_video/run_benchmark_generic_qa.sh
-```
-You will get a predtion file *generic.jsonl*.
-
-```sh
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 bash scripts/infer_video/run_benchmark_temporal_qa.sh
-```
-You will get a predtion file *temporal.jsonl*.
-
-```sh
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 bash scripts/infer_video/run_benchmark_consistency_qa.sh
 ```
-You will get a predtion file *consistency.jsonl*.
+You will get the predtion file *generic.jsonl, temporal.jsonl, consistency.jsonl*, respectively.
+
 
 **Step2: GPT-assistant evaluation**
 
