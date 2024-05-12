@@ -1,21 +1,21 @@
 <div align="center">
 
-<h2> FreeVA: Offline MLLM as Training-Free Video Assistant</h2>
+<h2>FreeVA: Offline MLLM as Training-Free Video Assistant</h2> 
 
 
 <!-- [![arXiv](https://img.shields.io/badge/Arxiv-2311.15732-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2301.00184) -->
 
-[Wenhao Wu](https://whwu95.github.io/)
+#### [Wenhao Wu](https://whwu95.github.io/)
 
-[The University of Sydney](https://www.sydney.edu.au/)
+#### [The University of Sydney](https://www.sydney.edu.au/)
 
-<h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for latest update.  </h2>
+<h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for latest update.  </h5>
 </div>
 
 ***
 
 
-Welcome to **FreeVA** - a plug-and-play, simple yet effective study exploring the utilization of existing image MLLMs as video conversational models in a training-free manner.
+Welcome to **FreeVA** - a plug-and-play, simple yet effective study exploring the utilization of existing image MLLMs as video conversational models in a training-free manner. The core code can be just one line!
 
 
 ## Main Take-aways💡
@@ -125,3 +125,4 @@ If you use our code in your research or wish to refer to the results, please sta
   booktitle={arXiv preprint arXiv:2311.15732},
   year={2024}
 } -->
+
