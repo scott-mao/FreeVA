@@ -109,9 +109,9 @@ bash scripts/gpt_eval/eval_qa_benchmark.sh
 ```
 
 ## Acknowledgement🙏
-We extend our sincere gratitude to these contributors:
+We extend our sincere gratitude to the following awesome projects:
 - [LLaVA](https://github.com/haotian-liu/LLaVA): Visual Instruction Tuning
-- [Video-ChatGPT](https://github.com/mbzuai-oryx/Video-ChatGPT): Video-ChatGPT: Towards Detailed Video Understanding via Large Vision and Language Models
+- [Video-ChatGPT](https://github.com/mbzuai-oryx/Video-ChatGPT): Towards Detailed Video Understanding via Large Vision and Language Models
   
 
 <!-- ## BibTeX & Citation
