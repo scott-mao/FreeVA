@@ -148,17 +148,17 @@ class LlavaMetaForCausalLM(ABC):
     def temporal_aggregation(self, image_features):
         T, N, D = image_features.shape
 
-        ## spatial pool
-        pool2 = nn.MaxPool1d(kernel_size=2, stride=2)
-        image_features = rearrange(image_features, 't n d -> t d n')
-        image_features = pool2(image_features)  # [t d n] -> [t d (n/2)]
-        image_features = rearrange(image_features, 't d n -> t n d', t=T)
-        image_features = image_features.view(-1, D) # [T*N D]
+        ## D1: temporal cat
+        image_features = image_features.view(T * N, D) # [T*N D]
 
-        ## dense cat
-        # image_features = image_features.view(T * N, D) # [T*N D]
+        ## D2: spatial pool + temporal cat
+        # pool2 = nn.MaxPool1d(kernel_size=2, stride=2)
+        # image_features = rearrange(image_features, 't n d -> t d n')
+        # image_features = pool2(image_features)  # [t d n] -> [t d (n/2)]
+        # image_features = rearrange(image_features, 't d n -> t n d', t=T)
+        # image_features = image_features.view(-1, D) # [T*N D]
 
-        ## GAP
+        ## S1: GAP
         # image_features = torch.mean(image_features, dim=0)  # [T N D] -> [N D]
 
         ####### unsqueeze

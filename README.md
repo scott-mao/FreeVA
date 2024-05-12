@@ -26,7 +26,7 @@ The study provides an essential, yet must-know baseline, and reveals several sur
 
 
 ## News
-- [] **[May 14, 2024]** Preprint will be released.
+- [ ] **[May 14, 2024]** Preprint will be released.
 - [x] **[May 12, 2024]** Code has been released. Thanks for your star 😝.
 
 
@@ -34,10 +34,11 @@ The study provides an essential, yet must-know baseline, and reveals several sur
 ## Overview
 
 <div align="center">
-An illustration of (a) an overview of the image MLLM inference process and (b) our
-proposed FreeVA for zero-shot video inference using existing image MLLMs.
+An illustration of (a) an overview of the image MLLM inference process and (b) our proposed FreeVA for zero-shot video inference using existing image MLLMs.
 <img src="figs/pipeline.png" width="800" />
+
 <img src="figs/sota.png" width="800" />
+
 <img src="figs/vis.png" width="800" />
 </div>
 
@@ -52,9 +53,36 @@ proposed FreeVA for zero-shot video inference using existing image MLLMs.
 
 ## Running
 
-FreeVA can be applied to any image-based MLLM, and its core code is straightforward, simply involving a temporal aggregation. Please refer to [temporal_aggregation]() for implementation details. 
+FreeVA can be applied to any image-based MLLM, and its core code is straightforward, simply involving a temporal aggregation. Please refer to [temporal_aggregation](https://github.com/whwu95/FreeVA/blob/92b9164f694e34edc7830d08ff2b233e7b14fb1d/llava/model/llava_arch.py#L148) for implementation details. 
 
-Below, we provide guidance on running the code using LLaVA-1.5 as an example.
+Below, we provide guidance on running the code using LLaVA-1.5 as an example. 
+
+Before running:
+1) Please refer to [cog.yaml](./cog.yaml) for environment configuration regarding LLaVA-1.5.
+2) Please download the LLaVA model in advance and place it in the "ckpt" folder, for example, "llava-v1.5-7b" or "llava-v1.5-13b".
+3) Please refer to [Video-ChatGPT](https://github.com/mbzuai-oryx/Video-ChatGPT) for downloading the evaluation dataset.
+
+### Zero-shot Video Question-Answering
+To enhance evaluation efficiency, we provide a script for single-machine *multi-GPU* evaluation. Taking the ActivityNet-QA dataset as an example, the specific steps to run the script are as follows:
+
+**Step1: Obtain the prediction file.**
+```sh
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 bash scripts/infer_video/run_qa_anet_7B.sh
+```
+You will get a predtion file *merge.jsonl*.
+
+**Step2: GPT-assistant evaluation**
+Running the following command will provide you with accuracy and score. 
+Before running, please fill in your OpenAI API Key, the prediction file address for Step 1, the number of worker processes for multiprocessing (to accelerate inference), and the version number of GPT-3.5.
+
+**Note: The default version of gpt-3.5-turbo has been updated three times in chronological order: gpt-3.5-turbo-0301, gpt-3.5-turbo-0613, gpt-3.5-turbo-0125, with significant performance differences between versions.**
+```sh
+bash scripts/gpt_eval/eval_qa_activitynet.sh
+```
+
+*The evaluation process for other datasets (MSRVTT-QA, MSVD-QA) follows the same procedure. Please refer to the steps outlined above.*
+
+### Video-Based Text Generation Performance.
 
 
 
