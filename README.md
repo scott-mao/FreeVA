@@ -1,7 +1,7 @@
 <div align="center">
 
 <h2> FreeVA: Offline MLLM as Training-Free Video Assistant</h2>
-<h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for latest update.  </h2>
+
 
 <!-- [![arXiv](https://img.shields.io/badge/Arxiv-2311.15732-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2301.00184) -->
 
@@ -9,6 +9,7 @@
 
 [The University of Sydney](https://www.sydney.edu.au/)
 
+<h5 align="center"> If you like our project, please give us a star ⭐ on GitHub for latest update.  </h2>
 </div>
 
 ***
@@ -17,7 +18,7 @@
 Welcome to **FreeVA** - a plug-and-play, simple yet effective study exploring the utilization of existing image MLLMs as video conversational models in a training-free manner.
 
 
-## Main Take-aways
+## Main Take-aways💡
 The study provides an essential, yet must-know baseline, and reveals several surprising findings: 
 1) FreeVA, leveraging only offline image-based MLLM without additional training, excels in zero-shot video question-answering (e.g., MSVD-QA, ActivityNet-QA, and MSRVTT-QA), even surpassing state-of-the-art methods that involve video instruction tuning. 
 2) While mainstream video-based MLLMs typically initialize with an image-based MLLM (\eg, LLaVA) and then fine-tune using video instruction tuning, the study indicates that utilizing the widely adopted VideoInstruct-100K for video instruction tuning doesn't actually lead to better performance compared to not training at all.
@@ -25,7 +26,7 @@ The study provides an essential, yet must-know baseline, and reveals several sur
 
 
 
-## News
+## 📢News
 - [ ] **[May 14, 2024]** Preprint will be released.
 - [x] **[May 12, 2024]** Code has been released. Thanks for your star 😝.
 
@@ -43,7 +44,8 @@ An illustration of (a) an overview of the image MLLM inference process and (b) o
 </div>
 
 
-## Empirical Study
+## Empirical Study📊
+
 <div align="center">
 <img src="figs/table1.png" width="800" />
 <img src="figs/table2.png" width="800" />
@@ -51,7 +53,7 @@ An illustration of (a) an overview of the image MLLM inference process and (b) o
 </div>
 
 
-## Running
+## Running Video QA💬
 
 FreeVA can be applied to any image-based MLLM, and its core code is straightforward, simply involving a temporal aggregation. Please refer to [temporal_aggregation](https://github.com/whwu95/FreeVA/blob/92b9164f694e34edc7830d08ff2b233e7b14fb1d/llava/model/llava_arch.py#L148) for implementation details. 
 
@@ -76,7 +78,7 @@ You will get a predtion file *merge.jsonl*.
 Running the following command will provide you with accuracy and score. 
 Before running, please fill in your OpenAI API Key, the prediction file address for Step 1, the number of worker processes for multiprocessing (to accelerate inference), and the version number of GPT-3.5.
 
-*Note: The default version of gpt-3.5-turbo has been updated three times in chronological order: gpt-3.5-turbo-0301, gpt-3.5-turbo-0613, gpt-3.5-turbo-0125, with significant performance differences between versions.*
+⚠️*Note: The default version of gpt-3.5-turbo has been updated three times in chronological order: gpt-3.5-turbo-0301, gpt-3.5-turbo-0613, gpt-3.5-turbo-0125, with significant performance differences between versions.*
 ```sh
 bash scripts/gpt_eval/eval_qa_activitynet.sh
 ```
@@ -106,7 +108,7 @@ Before running, please fill in your OpenAI API Key, the prediction file address 
 bash scripts/gpt_eval/eval_qa_benchmark.sh
 ```
 
-## Acknowledgement
+## Acknowledgement🙏
 We extend our sincere gratitude to these contributors:
 - [LLaVA](https://github.com/haotian-liu/LLaVA): Visual Instruction Tuning
 - [Video-ChatGPT](https://github.com/mbzuai-oryx/Video-ChatGPT): Video-ChatGPT: Towards Detailed Video Understanding via Large Vision and Language Models
