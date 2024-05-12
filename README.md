@@ -36,20 +36,20 @@ The study provides an essential, yet must-know baseline, and reveals several sur
 
 <div align="center">
 An illustration of (a) an overview of the image MLLM inference process and (b) our proposed FreeVA for zero-shot video inference using existing image MLLMs.
-<img src="figs/pipeline.png" width="800" />
+<img src="figs/pipeline.png" width="700" />
 
-<img src="figs/sota.png" width="800" />
+<img src="figs/sota.png" width="700" />
 
-<img src="figs/vis.png" width="800" />
+<img src="figs/vis.png" width="700" />
 </div>
 
 
 ## Empirical Study📊
 
 <div align="center">
-<img src="figs/table1.png" width="800" />
-<img src="figs/table2.png" width="800" />
-<img src="figs/table3.png" width="800" />
+<img src="figs/table1.png" width="700" />
+<img src="figs/table2.png" width="700" />
+<img src="figs/table3.png" width="700" />
 </div>
 
 
